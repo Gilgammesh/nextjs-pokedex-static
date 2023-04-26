@@ -3,31 +3,26 @@ import { useRouter } from 'next/router';
 
 import { Grid, Card } from '@nextui-org/react';
 
-
 interface Props {
-    pokemonId: number;
+  pokemonId: number;
 }
 
-
-export const FavoriteCardPokemon:FC<Props> = ({ pokemonId }) => {
-
+export const FavoriteCardPokemon: FC<Props> = ({ pokemonId }) => {
   const router = useRouter();
 
-
   const onFavoriteClicked = () => {
-    router.push(`/pokemon/${ pokemonId }`);
-  }
-
+    router.push(`/pokemon/${pokemonId}`);
+  };
 
   return (
-    <Grid xs={ 6 } sm={ 3 } md={ 2 } xl={ 1 } key={ pokemonId } onClick={ onFavoriteClicked }>
-        <Card hoverable clickable css={{ padding: 10 }}>
-        <Card.Image 
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ pokemonId }.svg`}
-            width={'100%'}
-            height={ 140 }
+    <Grid xs={6} sm={3} md={2} xl={1} key={pokemonId} onClick={onFavoriteClicked}>
+      <Card hoverable clickable css={{ padding: 10 }} className="shadow-lg shadow-cyan-500/50">
+        <Card.Image
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
+          width={'100%'}
+          height={140}
         />
-        </Card>
+      </Card>
     </Grid>
-  )
+  );
 };

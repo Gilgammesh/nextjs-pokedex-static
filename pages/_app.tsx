@@ -7,10 +7,10 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextUIProvider theme={ darkTheme }>
+    <NextUIProvider theme={darkTheme}>
       <Component {...pageProps} />
     </NextUIProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
