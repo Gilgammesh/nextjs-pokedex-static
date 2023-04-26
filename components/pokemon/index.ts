@@ -1,2 +1,3 @@
-export { default as PokemonCard } from './PokemonCard';
-export { default as PokemonList } from './PokemonList';
+export * from './FavoriteCardPokemon';
+export * from './FavoritePokemons';
+export * from './PokemonCard';

@@ -1,1 +1,4 @@
-export type { PokemonListResponse, SmallPokemon, FullPokemon } from './pokemon';
+
+
+export * from './pokemon-list';
+export * from './pokemon-full';

@@ -1,27 +1,41 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
 import Head from 'next/head';
-import { Navbar } from '@/components/ui';
 
-interface ILayoutProps {
-  children: ReactNode;
+import { Navbar } from '../ui';
+
+interface Props {
   title?: string;
 }
 
-const Layout = ({ children, title }: ILayoutProps) => {
+
+const origin = (typeof window === 'undefined') ? '' : window.location.origin;
+
+
+export const Layout: FC<Props> = ({ children, title }) => {
+
+
   return (
-    <>
-      <Head>
-        <title>{title || 'Pokemon App'}</title>
-        <meta name="author" content="Carlos Santander" />
-        <meta name="description" content={`Información sobre el pokemon ${title}`} />
-        <meta name="keywords" content={`${title}, pokemon, pokedex`} />
-      </Head>
+      <>
+        <Head>
+            <title>{ title || 'PokemonApp' }</title>
+            <meta name="author" content="Fernando Herrera" />
+            <meta name="description" content={`Información sobre el pokémon ${ title }`} />
+            <meta name="keywords" content={ `${ title }, pokemon, pokedex`} />
 
-      <Navbar />
+            <meta property="og:title" content={`Información sobre ${ title }`} />
+            <meta property="og:description" content={`Esta es la página sobre ${ title }`} />
+            <meta property="og:image" content={`${ origin }/img/banner.png`} />
 
-      <main className="py-0 px-10">{children}</main>
-    </>
-  );
+        </Head>
+      
+        <Navbar />
+
+        <main style={{
+          padding: '0px 20px'
+        }}>
+            { children }
+        </main>
+      
+      </>
+  )
 };
-
-export default Layout;
